@@ -709,7 +709,8 @@
     "vscode:prepublish": "npm run compile",
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
-    "lint": "tslint --project tsconfig.json -e src/*.d.ts -t verbose"
+    "lint": "tslint --project tsconfig.json -e src/*.d.ts -t verbose",
+    "postinstall": "npm update vsc-leetcode-cli"
   },
   "devDependencies": {
     "@types/fs-extra": "^9.0.11",
@@ -729,6 +730,6 @@
     "markdown-it": "^8.4.2",
     "require-from-string": "^2.0.2",
     "unescape-js": "^1.1.4",
-    "vsc-leetcode-cli": "git://github.com/woung717/leetcode-cli.git#add-browser-login"
+    "vsc-leetcode-cli": "git://github.com/woung717/leetcode-cli.git#55be485"
   }
 }

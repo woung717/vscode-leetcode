@@ -41,7 +41,7 @@ class LeetCodeManager extends EventEmitter {
         picks.push(
             {
                 label: "LeetCode Account",
-                detail: "Use LeetCode account to login (US endpoint is not supported)",
+                detail: "Use LeetCode account to login",
                 value: "LeetCode",
             },
             {
@@ -82,7 +82,6 @@ class LeetCodeManager extends EventEmitter {
                         shell: true,
                         env: createEnvOption(),
                     });
-
                 childProc.stdout?.on("data", async (data: string | Buffer) => {
                     data = data.toString();
                     leetCodeChannel.append(data);
@@ -111,6 +110,9 @@ class LeetCodeManager extends EventEmitter {
                 childProc.stderr?.on("data", (data: string | Buffer) => leetCodeChannel.append(data.toString()));
 
                 childProc.on("error", reject);
+
+                if (loginMethod === 'LeetCode') return;
+
                 const name: string | undefined = await vscode.window.showInputBox({
                     prompt: "Enter username or E-mail.",
                     ignoreFocusOut: true,
